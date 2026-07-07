@@ -1,5 +1,5 @@
 # Telegram bot token from BotFather
-BOT_TOKEN="7950625604:AAG4yfVI5SRykP8fe-cj3Va9fxL1nhCAhZA"
+BOT_TOKEN="TOKEN"
 
 # Comma-separated numeric Telegram user IDs allowed to control the Mac Mini
 ALLOWED_TELEGRAM_IDS=123456789
