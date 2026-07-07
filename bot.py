@@ -14,7 +14,7 @@ Important safety features:
 - Audit log and unauthorized access log
 - No custom shell commands from Telegram
 """
-
+from __future__ import annotations
 import asyncio
 import glob
 import json
@@ -543,7 +543,7 @@ def storage_paths() -> list[str]:
     return result
 
 
-def get_disk_partitions() -> list[psutil._common.sdiskpart]:
+def get_disk_partitions() -> list:
     partitions = psutil.disk_partitions(all=False)
     seen = set()
     result = []
@@ -2097,8 +2097,8 @@ async def post_init(application: Application) -> None:
         f"Public IP: {get_public_ip()}",
         alert_key=None,
     )
-    application.create_task(alert_monitor_loop(application))
-    application.create_task(daily_report_loop(application))
+    asyncio.create_task(alert_monitor_loop(application))
+    asyncio.create_task(daily_report_loop(application))
 
 
 def main() -> None:
